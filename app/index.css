@@ -40,4 +40,57 @@ li {
     font-weight: bold;
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+}
+
+.card-list {
+    margin: 20px;
+    font-size: 20px;
+}
+
+.card-list li {
+    font-size: 14px;
+    display: flex;
+    margin: 4px;
+    align-items: initial;
+}
+
+.card-list>li>a {
+    text-decoration: none;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.header-lg {
+    font-size: 25px;
+    font-weight: 300;
+    margin: 20px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 3px;
+    margin: 0 auto;
+    display: block;
+}
+
+.link {
+    font-size: 18px;
+}
+
+.bg-light {
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.repo {
+    border-radius: 3px;
+    width: 200px;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { fetchPopularRepos } from '../utils/api';
+import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa';
 
 function LanguagesNav ({ selected, onUpdateLanguage }) {
     const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
@@ -27,6 +28,66 @@ LanguagesNav.propTypes = {
     onUpdateLanguage: PropTypes.func.isRequired
 }
 
+function ReposGrid ({ repos }) {
+    return (
+        <ul className='grid space-around'>
+            {/* <pre>{JSON.stringify(repos, null, 2)}</pre> */}
+            {repos.map((repo, index) => {
+                const { id, name, owner, html_url, stargazers_count, forks, open_issues } = repo;
+                const { login, avatar_url } = owner;
+
+                return (
+                    <li key={id} className='repo bg-light m-4'>
+                        <h4 className='header-lg text-center'>
+                            #{index + 1}
+                        </h4>
+                        <img 
+                            className='avatar'
+                            src={avatar_url}
+                            alt={`Avatar for ${login}`}    
+                        >
+                        </img>
+                        <h2 className='text-center'>
+                            <a className='link' href={html_url}>
+                                {login}
+                            </a>
+
+                        </h2>
+
+                        <ul className='card-list'>
+                            <li>
+                                <a href={`https://www.github.com/${login}`} >
+                                    <FaUser color='rgb(190,190,190)' size={18}/>
+                                    {" " + login}
+                                </a> 
+                            </li>
+                            <li>
+                                <a href={html_url} >
+                                    <FaStar color='rgb(190,190,190)' size={18}/>{" " + stargazers_count.toLocaleString()} stars
+                                </a>
+                            </li>
+                            <li>
+                                <a href={html_url} >
+                                    <FaCodeBranch color='rgb(190,190,190)' size={18}/>
+                                    {" " + forks.toLocaleString()} forks
+                                </a>
+                            </li>
+                            <li>
+                                <a href={html_url} >
+                                    <FaExclamationTriangle color='rgb(190,190,190)' size={18}/>{" " + open_issues.toLocaleString()} open issues
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                )
+            })}
+        </ul>  
+    )
+}
+
+ReposGrid.propTypes = {
+    repos: PropTypes.array.isRequired,
+}
 
 export default class Popular extends React.Component {
     constructor(props) {
@@ -95,8 +156,8 @@ export default class Popular extends React.Component {
                     onUpdateLanguage={this.updateLanguage}
                 />
 
-                {this.isLoading() && <p>Loading</p>}
-                {repos[selectedLanguage] && <pre>{JSON.stringify(repos[selectedLanguage], null, 2)}</pre>}
+                {this.isLoading() && <p>Loading...</p>}
+                {repos[selectedLanguage] && <ReposGrid repos={ repos[selectedLanguage] }/>}
                 {error && <p>{error}</p>}
             </React.Fragment>
         )
