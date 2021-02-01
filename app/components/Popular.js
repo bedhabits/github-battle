@@ -11,12 +11,14 @@ function LanguagesNav ({ selected, onUpdateLanguage }) {
         <ul className='flex-center'>
             {languages.map((language) => (
                 <li key={language}>
-                <button
-                    className='btn-clear nav-link'
-                    style={language === selected ? { color: 'rgb(187, 46, 31)' } : null}
-                    onClick={() => onUpdateLanguage(language)}>
-                    {language}
-                </button>
+                    <button
+                        className='btn-clear nav-link'
+                        style={language === selected ? { color: 'rgb(187, 46, 31)' } : null}
+                        onClick={() => onUpdateLanguage(language)}>
+
+                        {language}
+
+                    </button>
                 </li>
             ))}
         </ul>
@@ -48,7 +50,7 @@ function ReposGrid ({ repos }) {
                         >
                         </img>
                         <h2 className='text-center'>
-                            <a className='link' href={html_url}>
+                            <a className='link login' href={html_url}>
                                 {login}
                             </a>
 
@@ -57,24 +59,24 @@ function ReposGrid ({ repos }) {
                         <ul className='card-list'>
                             <li>
                                 <a href={`https://www.github.com/${login}`} >
-                                    <FaUser color='rgb(190,190,190)' size={18}/>
+                                    <FaUser color='yellow' size={18}/>
                                     {" " + login}
                                 </a> 
                             </li>
                             <li>
                                 <a href={html_url} >
-                                    <FaStar color='rgb(190,190,190)' size={18}/>{" " + stargazers_count.toLocaleString()} stars
+                                    <FaStar color='blue' size={18}/>{" " + stargazers_count.toLocaleString()} stars
                                 </a>
                             </li>
                             <li>
                                 <a href={html_url} >
-                                    <FaCodeBranch color='rgb(190,190,190)' size={18}/>
+                                    <FaCodeBranch color='orange' size={18}/>
                                     {" " + forks.toLocaleString()} forks
                                 </a>
                             </li>
                             <li>
                                 <a href={html_url} >
-                                    <FaExclamationTriangle color='rgb(190,190,190)' size={18}/>{" " + open_issues.toLocaleString()} open issues
+                                    <FaExclamationTriangle color='red' size={18}/>{" " + open_issues.toLocaleString()} open
                                 </a>
                             </li>
                         </ul>

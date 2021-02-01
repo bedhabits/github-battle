@@ -7,8 +7,9 @@ export function fetchPopularRepos(language) {
         .then((data) => {
             if (!data.items) {
                 throw new Error(data.message)
-            }
 
+            }
             return data.items
         })
+
 }
