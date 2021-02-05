@@ -11,19 +11,18 @@ function Instruction () {
                 </h1>
                 <ol className='container-sm grid center-text battle-instructions'>
                     <li>
-                        <h3>Enter two Github</h3>
-
-                        <FaUserFriends size={140} color={'black'}/>
+                        <h3 className="header-sm">Enter two Github</h3>
+                        <FaUserFriends className="bg-light" size={140} color={'black'}/>
                     </li>
 
                     <li>
-                        <h3>Battle</h3>
-                        <FaFighterJet size={140} color={'red'}/>
+                        <h3 className="header-sm">Battle</h3>
+                        <FaFighterJet className="bg-light" size={140} color={'red'}/>
                     </li>
 
                     <li>
-                        <h3>Enter tow Github users</h3>
-                        <FaTrophy size={140} color={'orange'}/>
+                        <h3 className="header-sm">Enter tow Github users</h3>
+                        <FaTrophy className="bg-light" size={140} color={'orange'}/>
                     </li>
 
                 </ol>

@@ -74,6 +74,12 @@ li {
     margin: 20px;
 }
 
+.header-sm {
+    font-size: 20px;
+    font-weight: 200;
+    margin: 20px;
+}
+
 .avatar {
     width: 150px;
     height: 150px;
@@ -97,4 +103,32 @@ li {
 
 .login {
     color: red;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.instruction-container {
+    margin: 100px 0;
+}
+
+.container-sm {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.battle-instructions {
+    padding: 0;
+    font-size: 25px;
+}
+
+.battle-instructions li {
+    flex: 1;
+    min-width: 250px;
+}
+
+.battle-instructions svg {
+    padding: 40px;
+    border-radius: 3px;
 }
