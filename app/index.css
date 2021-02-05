@@ -201,3 +201,20 @@ li {
 .players-container {
     margin: 100px 0;
 }
+
+.avatar-sm {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.player-info {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-info link {
+    margin-left: 10px;
+}
