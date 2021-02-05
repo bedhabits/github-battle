@@ -81,7 +81,6 @@ class PlayerInput extends React.Component {
                         Submit
                     </button>
                 </div>
-                Player Input 01           
             </form>
             
         )
@@ -93,18 +92,47 @@ PlayerInput.propTypes = {
     label: PropTypes.string.isRequired
 }
 export default class Battle extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            playerOne: null,
+            playerTwo: null,
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit (id, player) {
+        this.setState({
+            [id]: player
+        })
+    }
     render() {
+        const { playerOne, playerTwo } = this.state;
         return (
-            // <React.Fragment>
-            <div>
+            <React.Fragment>
 
                 <Instructions />
-                <PlayerInput 
-                    onSubmit={(value) => console.log('The value is:',value)}
-                    label='Label!'
-                />
-            </div>
-            // </React.Fragment>
+
+                <div className='players-container'>
+                    <h1 className='center-text header-lg'>Players</h1>
+                    <div className='row spce-around'>
+                        {playerOne === null && 
+                            <PlayerInput 
+                                onSubmit={(player) => this.handleSubmit('playerOne', player)}
+                                label='Player One'
+                            />
+                        }
+                        {playerTwo === null && 
+                            <PlayerInput 
+                                onSubmit={(player) => this.handleSubmit('playerTwo', player)}
+                                label='Player Two'
+                            />
+                        }
+                    </div>
+                </div>
+            </React.Fragment>
         )
     }
 }
